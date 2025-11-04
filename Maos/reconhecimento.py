@@ -4,10 +4,12 @@ import pickle
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 
 # --- Configurações e Carregamento do Modelo ---
-MODEL_PATH = "modelo_gestos.pkl"
-LABEL_ENCODER_PATH = "label_encoder.pkl"
+DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(DIRETORIO_BASE,'modelo_gestos.pkl')
+LABEL_ENCODER_PATH = os.path.join(DIRETORIO_BASE,'label_encoder.pkl')
 NUM_LANDMARKS = 21
 
 print("Carregando modelo...")
